@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report a Problem</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0d1117, #161b22);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #d1d5db;
+    }
+
+    /* Report Section */
+    .report-container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .report-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4f46e5;
+    }
+
+    /* Report Form */
+    .report-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .report-form label {
+      font-weight: 500;
+    }
+
+    .report-form input,
+    .report-form textarea,
+    .report-form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .report-form textarea {
+      height: 120px;
+    }
+
+    .report-form button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #4f46e5, #4338ca);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .report-form button:hover {
+      background: linear-gradient(135deg, #4338ca, #4f46e5);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1f2937;
+      color: white;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Report a Problem</h1>
+    <p>Help us improve by reporting issues or sharing feedback!</p>
+  </header>
+
+  <div class="report-container">
+    <h2>Report an Issue or Provide Feedback</h2>
+    <form class="report-form">
+
+      <label for="issue-type">Select the language:</label>
+      <select id="issue-type" name="issue-type" required>
+        <option value="Quizzes">Python Quiz</option>
+        <option value="Quizzes">C Quiz</option>
+        <option value="Quizzes">CSS Quiz</option>
+        <option value="Quizzes">GO Quiz</option>
+        <option value="Quizzes">Dart Quiz</option>
+        <option value="Quizzes">HTML Quiz</option>
+        <option value="Quizzes">Java Quiz</option>
+        <option value="Quizzes">java Script Quiz</option>
+        <option value="Quizzes">Julia Quiz</option>
+        <option value="Quizzes">Kotlin Quiz</option>
+        <option value="Quizzes">PHP Quiz</option>
+        <option value="Quizzes">R Quiz</option>
+        <option value="Quizzes">Ruby Quiz</option>
+        <option value="Quizzes">Rust Quiz</option>
+        <option value="Quizzes">Shell Quiz</option>
+        <option value="Quizzes">Swift Quiz</option>
+        <option value="Quizzes">Type Script Quiz</option>
+      </select>
+
+      <label for="quiz-id">Quiz Question:</label>
+      <input type="text" id="quiz-id" name="quiz-id" placeholder="Enter the quiz ID or title" required>
+
+      <label for="question-number">Question Number:</label>
+      <input type="number" id="question-number" name="question-number" placeholder="Enter the question number (optional)">
+
+      <label for="issue-type">Type of Issue:</label>
+      <select id="issue-type" name="issue-type" required>
+        <option value="error">Error in Question/Answer</option>
+        <option value="feedback">Feedback or Suggestion</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="details">Details:</label>
+      <textarea id="details" name="details" placeholder="Describe the issue or feedback" required></textarea>
+
+      <label for="email">Your Email (Optional):</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email if you'd like a response">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Quiz App | <a href="privacy.html">Privacy Policy</a> | <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>

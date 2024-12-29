@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6200ea">
+  <title>Python Quiz</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>Python Quiz</h1>
+  </header>
+
+  <main>
+    <form id="quiz-form">
+      <!-- Questions will be dynamically added here -->
+    </form>
+    <div id="results" aria-live="polite"></div>
+  </main>
+  
+  <div class="sidebar">
+    <h3>Questions</h3>
+    <ul class="question-list">
+      <li class="active" onclick="switchQuestion(0)">Question 1</li>
+      <li onclick="switchQuestion(1)">Question 2</li>
+      <li onclick="switchQuestion(2)">Question 3</li>
+      <!-- Add more questions here -->
+    </ul>
+  </div>
+</div>
+
+  <footer>
+    <p>&copy; 2024 Programming Quiz Portal. All rights reserved.</p>
+  </footer>
+  
+  <script src="../scripts/main.js" type="module"></script>
+
+  <noscript>
+    <p style="color: red; text-align: center;">JavaScript is required to use this quiz. Please enable it in your browser.</p>
+  </noscript>
+</body>
+</html>

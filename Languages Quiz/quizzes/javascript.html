@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Quiz</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript Quiz</h1>
+    <p>Test your knowledge of JavaScript and its quirks!</p>
+  </header>
+
+  <main>
+    <section class="quiz">
+      <form id="quiz-form">
+        <div class="quiz-question">
+          <h3>Question 1: What is the correct syntax to print a message in JavaScript?</h3>
+          <label><input type="radio" name="q1" value="a"> print("Hello World")</label>
+          <label><input type="radio" name="q1" value="b"> console.log("Hello World")</label>
+          <label><input type="radio" name="q1" value="c"> echo("Hello World")</label>
+        </div>
+
+        <div class="quiz-question">
+          <h3>Question 2: What is the result of `typeof NaN` in JavaScript?</h3>
+          <label><input type="radio" name="q2" value="a"> 'number'</label>
+          <label><input type="radio" name="q2" value="b"> 'NaN'</label>
+          <label><input type="radio" name="q2" value="c"> 'undefined'</label>
+        </div>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Quiz Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

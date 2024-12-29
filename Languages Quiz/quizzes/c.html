@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Quiz</title>
+    <link rel="stylesheet" href="../styles/c.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>C Programming Quiz</h1>
+            <p>Test your C programming knowledge in style!</p>
+        </div>
+    </header>
+    <main>
+        <div class="quiz-container">
+            <section id="question-section" class="question-section">
+                <div id="question-container" class="question">
+                    <!-- Question content will be dynamically loaded here -->
+                </div>
+                <div class="navigation">
+                    <button id="prev-btn" class="nav-btn">Previous</button>
+                    <button id="next-btn" class="nav-btn">Next</button>
+                    <button id="submit-btn" class="submit-btn">Submit Quiz</button>
+
+<script>
+  // Select the button
+  const submitBtn = document.getElementById('submit-btn');
+  
+  // Add a click event listener
+  submitBtn.addEventListener('click', function () {
+    // Redirect to result.html
+    window.location.href = '../result/result.html';
+  });
+</script>
+
+                </div>
+            </section>
+            <aside class="sidebar">
+                <div class="question-nav">
+                    <h2>Question Navigator</h2>
+                    <div class="question-grid">
+                        <!-- Question numbers will be dynamically loaded here -->
+                    </div>
+                    
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 C Programming Quiz | Designed with ❤️ by Naitik</p>
+    </footer>
+    <script src="../scripts/c.js"></script>
+</body>
+</html>

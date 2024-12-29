@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Quiz Results</h1>
+            <p>Review your answers and learn from your mistakes!</p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Main content area for results -->
+            <div class="result-container">
+                <h2>Your Score: <span id="score" class="highlighted-score">85</span></h2>
+                <p id="percentage" class="percentage"></p>
+                <div class="questions-result">
+                    <!-- Dynamically added questions go here -->
+                </div>
+                <button id="retry-btn" class="submit-btn">Retry Quiz</button>
+            </div>
+
+            <!-- Sidebar for navigating questions -->
+            <div class="sidebar">
+                <h3>Navigate Questions</h3>
+                <div class="question-navigation">
+                    <!-- Dynamically populated question number boxes go here -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 C Programming Quiz | Designed with ❤️ by Naitik</p>
+    </footer>
+    <script src="../scripts/c.js"></script>  <!-- Ensure this file exists and works -->
+    <script src="result.js"></script>  <!-- Ensure this file exists and works -->
+</body>
+</html>

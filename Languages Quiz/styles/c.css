@@ -1,0 +1,446 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #fff; /* Set the entire background to white */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Use Fira Code font only for question and options */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+.question, #quiz-form label {
+    font-family: 'Fira Code', monospace; /* Apply Fira Code font to questions and options */
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    color: #fff;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* Main Container */
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.quiz-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Section */
+.question-section {
+    flex: 3;
+    padding: 30px;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 30px;
+    font-family: 'Fira Code', monospace; /* Fira Code for questions */
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#quiz-form label {
+    display: flex;
+    align-items: center;
+    font-family: 'Fira Code', monospace; /* Fira Code for options */
+    font-size: 0.5em;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#quiz-form label:hover {
+    background: #f0f0f0;
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+#quiz-form input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+/* Sidebar */
+.sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+    flex: 1;
+    border-left: 2px solid #ddd;
+    text-align: center;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.question-grid button {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.question-grid button:hover {
+    background: #d0d0d0;
+    transform: scale(1.05);
+}
+
+.submit-btn {
+    display: block;
+    margin: 30px auto 0; /* Adjust the top margin to position the button below */
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .submit-btn:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(-1px);
+  }
+  
+/* New Previous and Next Buttons */
+.nav-btn {
+    position: relative;
+    padding: 10px 75px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: black; /* Initial text color */
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  .nav-btn:hover {
+    background: rgb(61, 106, 255);
+    color: white; /* Text color on hover */
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  .nav-btn:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  .nav-btn::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  .nav-btn:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+  
+  .nav-btn:disabled {
+    background: #b0b0b0;
+    cursor: not-allowed;
+  }
+  
+/* Result Section */
+.result {
+    font-family: 'Lora', serif;
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.result .score {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Footer */
+footer {
+    background: #1f2937;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .quiz-container {
+        flex-direction: column;
+    }
+
+    .question-section {
+        padding: 20px;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .quiz-question h3 {
+        font-size: 1.4rem;
+    }
+
+    .quiz-question label {
+        font-size: 1.1rem;
+    }
+
+    .nav-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .quiz-container {
+        padding: 10px;
+    }
+
+    .quiz-card {
+        padding: 15px;
+    }
+
+    .submit-btn {
+        padding: 12px 25px;
+    }
+
+    .quiz-question label {
+        font-size: 1rem;
+    }
+}
+/* Sidebar */
+/* Sidebar */
+.sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+    flex: 1;
+    border-left: 2px solid #ddd;
+    text-align: center;
+    height: 80vh; /* Reduced height from 100vh to 80vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space between buttons */
+    overflow-y: auto; /* Allow scrolling */
+    position: relative; /* Allow positioning of submit button */
+}
+
+/* Question Grid */
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex-grow: 1; /* Take up available space */
+    overflow-y: auto; /* Enable scrolling */
+    height: 100%; /* Ensure it takes up full height of the sidebar */
+    padding-right: 10px; /* Prevent scrollbar overlap */
+}
+
+/* Navigation Buttons (Previous, Next) */
+.nav-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Space between navigation buttons and submit button */
+}
+
+/* Submit Button */
+/* Submit Button */
+.submit-btn {
+    position: relative;
+    padding: 10px 75px;
+    border-radius: 7px;
+    border: 1px solid rgb(31, 255, 61);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: black; /* Initial text color */
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
+}
+
+/* Hover Effect */
+.submit-btn:hover {
+    background: rgb(31, 255, 61);
+    color: white; /* Text color on hover */
+    box-shadow: 0 0 30px 5px rgba(78, 255, 93, 0.815);
+    transition: all 0.2s ease-out;
+}
+
+/* Hover Animation */
+.submit-btn:hover::before {
+    animation: sh02 0.5s 0s linear;
+}
+
+/* Submit Button Animation */
+.submit-btn::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    transform: skewX(-20deg);
+}
+
+/* Keyframe for animation */
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+/* Active state */
+.submit-btn:active {
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow 0.2s ease-in;
+}
+
+/* Disabled state */
+.submit-btn:disabled {
+    background: #b0b0b0;
+    cursor: not-allowed;
+}

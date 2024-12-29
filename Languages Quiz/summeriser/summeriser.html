@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Summarizer Tool</title>
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      color: #333;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 700px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .textarea-wrapper {
+      margin-bottom: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 160px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+/* From Uiverse.io by mrhyddenn */
+button {
+  position: relative;
+  padding: 10px 75px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: black; /* Initial text color */
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  color: white; /* Text color on hover */
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+/* Updated File Upload Button */
+.file-upload {
+  position: relative;
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.file-upload::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-30deg);
+  transition: all 0.4s ease;
+}
+
+.file-upload:hover::before {
+  left: 100%;
+  transition: all 0.4s ease;
+}
+
+.file-upload:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Output Section */
+.output {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  min-height: 100px;
+  color: #333;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.output p {
+  margin: 0;
+}
+
+/* Loading Animation */
+.loading {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+    /* Loader Styles */
+/* From Uiverse.io by JaydipPrajapati1910 */ 
+.loader {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 48px;
+  height: 5px;
+  background: #999;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgb(61, 106, 255);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+
+  0%,
+    100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text Summarizer Tool</h1>
+    <div class="textarea-wrapper">
+      <textarea id="inputText" placeholder="Enter text to summarize..."></textarea>
+    </div>
+
+    <div class="button-group">
+      <button id="summarizeBtn">Summarize</button>
+      <button id="voiceCmdBtn">Start Voice Command</button>
+    </div>
+
+    <label for="imageUpload" class="file-upload">Upload Image</label>
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <div class="output" id="output">
+      <p>Summary will appear here...</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.2/dist/tesseract.min.js"></script>
+
+  <script>
+    // Mock API for summarizing text
+    async function mockSummarizerAPI(text) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(`This is a modern summary of: "${text}"`);
+        }, 1500); // Simulated delay
+      });
+    }
+
+    // DOM Elements
+    const summarizeBtn = document.getElementById('summarizeBtn');
+    const voiceCmdBtn = document.getElementById('voiceCmdBtn');
+    const inputText = document.getElementById('inputText');
+    const output = document.getElementById('output');
+    const imageUpload = document.getElementById('imageUpload');
+
+    // Speech Recognition setup
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    // Start voice command
+    voiceCmdBtn.addEventListener('click', () => {
+      recognition.start();
+      output.innerHTML = "<p class='loading'>Listening...</p>";
+    });
+
+    recognition.onresult = async (event) => {
+      const transcript = event.results[0][0].transcript;
+      inputText.value = transcript;
+      output.innerHTML = `<p>Text from voice: "${transcript}"</p>`;
+      await summarizeText(transcript);
+    };
+
+    recognition.onerror = (event) => {
+      output.innerHTML = `<p class='error'>Error: ${event.error}</p>`;
+    };
+
+    // Handle image upload for OCR
+    imageUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        // Show loading spinner during OCR processing
+        output.innerHTML = "<div class='loader'></div><p>Processing image...</p>";
+
+        Tesseract.recognize(
+          file,
+          'eng',
+          {
+            logger: (m) => console.log(m)
+          }
+        ).then(({ data: { text } }) => {
+          inputText.value = text;
+          output.innerHTML = `<p>Text from image: "${text}"</p>`;
+          summarizeText(text);
+        }).catch(err => {
+          output.innerHTML = `<p class='error'>Error with OCR: ${err.message}</p>`;
+        });
+      }
+    });
+
+    // Handle summarization of the text
+    async function summarizeText(text) {
+      if (!text.trim()) {
+        output.innerHTML = "<p class='error'>Please enter some text to summarize.</p>";
+        return;
+      }
+
+      output.innerHTML = "<div class='loader'></div><p>Summarizing...</p>";
+
+      try {
+        const summary = await mockSummarizerAPI(text);
+        output.innerHTML = `<p>${summary}</p>`;
+      } catch (error) {
+        output.innerHTML = `<p class='error'>Error: ${error.message}</p>`;
+      }
+    }
+
+    summarizeBtn.addEventListener('click', async () => {
+      await summarizeText(inputText.value.trim());
+    });
+  </script>
+</body>
+</html>

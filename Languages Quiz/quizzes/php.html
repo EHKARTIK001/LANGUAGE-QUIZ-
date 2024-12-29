@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP Quiz</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>PHP Quiz</h1>
+    <p>Put your PHP knowledge to the test!</p>
+  </header>
+
+  <main>
+    <section class="quiz">
+      <form id="quiz-form">
+        <div class="quiz-question">
+          <h3>Question 1: What is the correct way to start a PHP block?</h3>
+          <label><input type="radio" name="q1" value="a"> <?php ... ?></label>
+          <label><input type="radio" name="q1" value="b"> <php ... ></label>
+          <label><input type="radio" name="q1" value="c"> <? ... ?></label>
+        </div>
+
+        <div class="quiz-question">
+          <h3>Question 2: How do you declare a variable in PHP?</h3>
+          <label><input type="radio" name="q2" value="a"> var $varName</label>
+          <label><input type="radio" name="q2" value="b"> $varName = 10;</label>
+          <label><input type="radio" name="q2" value="c"> $varName => 10;</label>
+        </div>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Quiz Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
